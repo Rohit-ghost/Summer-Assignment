@@ -1,0 +1,18 @@
+class Solution {
+    public double findMaxAverage(int[] arr, int k) {
+        long sum = 0;
+
+        for (int ind = 0; ind < k; ind++) {
+            sum += arr[ind];
+        }
+
+        long maxSum = sum;
+
+        for (int ind = k; ind < arr.length; ind++) {
+            sum += arr[ind] - arr[ind - k];
+            maxSum = Math.max(maxSum, sum);
+        }
+
+        return (double) maxSum / k;
+    }
+}
