@@ -1,0 +1,19 @@
+class Solution {
+    public boolean containsDuplicate(int[] arr) {
+
+        HashSet<Integer>hs=new HashSet<>();
+
+        for(int idx=0;idx<arr.length;idx++){
+
+            if(hs.contains(arr[idx])){
+                return true;
+            }else{
+                hs.add(arr[idx]);
+            }
+
+        }
+
+        return false;
+        
+    }
+}
