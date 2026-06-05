@@ -1,0 +1,23 @@
+class Solution {
+    public int maxSubArray(int[] arr) {
+
+        int maxsum=arr[0];
+        int sum=0;
+
+        for(int idx=0;idx<arr.length;idx++){
+            sum=sum+arr[idx];
+
+            if(sum>maxsum){
+                maxsum=sum;
+            }
+
+            if(sum <= 0){
+                sum=0;
+            }
+
+    
+        }
+        return maxsum;
+        
+    }
+}
