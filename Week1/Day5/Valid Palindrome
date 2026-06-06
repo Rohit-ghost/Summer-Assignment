@@ -1,1 +1,38 @@
+class Solution {
 
+    public boolean isAlphanumeric(char c) {
+        if (c >= '0' && c <= '9') {
+            return true;
+        }
+        c = Character.toLowerCase(c);
+        if (c >= 'a' && c <= 'z') {
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isPalindrome(String s) {
+        int st = 0;
+        int lt = s.length() - 1;
+
+        while (st <= lt) {
+
+            while (st <= lt && !isAlphanumeric(s.charAt(st))) {
+                st++;
+            }
+            while (st <= lt && !isAlphanumeric(s.charAt(lt))) {
+                lt--;
+            }
+
+            if (st <= lt &&
+                Character.toLowerCase(s.charAt(st)) != Character.toLowerCase(s.charAt(lt))) {
+                return false;
+            }
+
+            st++;
+            lt--;
+        }
+
+        return true;
+    }
+}
