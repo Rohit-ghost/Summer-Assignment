@@ -1,0 +1,57 @@
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        String ans=strs[0];
+        for(int i=1;i<strs.length;i++){
+            String temp="";
+            int m=Math.min(strs[i].length(),ans.length());
+            for(int j=0;j<m;j++){
+                if(ans.charAt(j) == strs[i].charAt(j)){
+                    temp=temp+ans.charAt(j);
+                }else{
+                    break;
+                }
+            }
+            ans=temp;
+
+            if(ans==""){
+                return "";
+            }
+        }
+        
+        return ans;
+    }
+}
+
+
+
+second logic for optimize  whitout create temp for every itreation 
+
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+        if (strs == null || strs.length == 0) {
+            return "";
+        }
+        
+        String ans = strs[0];
+        
+        for (int i = 1; i < strs.length; i++) {
+            int j = 0;
+            int m = Math.min(strs[i].length(), ans.length());
+            
+            while (j < m && strs[i].charAt(j) == ans.charAt(j)) {
+                j++;
+            }
+            
+            ans = ans.substring(0, j);
+            
+            if (ans.isEmpty()) {
+                return "";
+            }
+        }
+        
+        return ans;
+    }
+}
+
+
+
