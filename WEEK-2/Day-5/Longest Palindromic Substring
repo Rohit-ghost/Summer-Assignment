@@ -1,0 +1,30 @@
+class Solution {
+    private boolean isPlendrome(String str){
+        int st=0,end=str.length()-1;
+        while(st<end){
+            if(str.charAt(st)!=str.charAt(end)){
+                return false;
+            }
+            st++;
+            end--;
+        }
+        return true;
+    }
+    public String longestPalindrome(String s) {
+        
+        if(s.length()==0 || s.length()==1){
+            return s;
+        }
+        String ans="";
+        for(int i=0;i<s.length();i++){
+            for(int j=i+1;j<=s.length();j++){
+                if(isPlendrome(s.substring(i,j))){
+                    if(s.substring(i,j).length()>ans.length()){
+                        ans=s.substring(i,j);
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+}
