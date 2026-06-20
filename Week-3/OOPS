@@ -1,0 +1,76 @@
+
+import java.util.Random;
+
+class TestCompartment{
+    public static void main(String args[]){
+
+        Compartment compartments[]=new Compartment[10];
+        Random rand=new Random();
+        for(int i=0;i<compartments.length;i++){
+            int type= rand.nextInt(4)+1;
+
+             switch (type) {
+                case 1:
+                    compartments[i] = new FirstClass();
+                    break;
+                case 2:
+                    compartments[i] = new Ladies();
+                    break;
+                case 3:
+                    compartments[i] = new General();
+                    break;
+                case 4:
+                    compartments[i] = new Luggage();
+                    break;
+            }
+        }
+        for (int i = 0; i < compartments.length; i++) {
+            System.out.println("Compartment " + (i + 1) + ": " + compartments[i].Notice());
+        }
+
+    }
+}
+
+abstract class Compartment{
+    public abstract String Notice();
+}
+
+class FirstClass extends Compartment{
+    @Override
+    public String Notice(){
+        return "FirstClass Compartment: AC coach with reclining seats. Please carry a valid ticket and ID proof.";
+    }
+
+}
+class Ladies extends Compartment{
+    public String Notice(){
+         return "Ladies Compartment: Reserved exclusively for women passengers. Male passengers are not allowed.";
+
+    }
+
+}
+class General extends Compartment{
+    public String Notice(){
+    return "General Compartment: Unreserved seating, open to all passengers on a first-come basis.";
+}
+}
+class Luggage extends Compartment{
+    public String Notice(){
+        return "Luggage Compartment: For parcels and goods only. No passengers allowed.";
+    }
+    
+}
+
+
+output:
+Compartment 1: FirstClass Compartment: AC coach with reclining seats. Please carry a valid ticket and ID proof.
+Compartment 2: Luggage Compartment: For parcels and goods only. No passengers allowed.
+Compartment 3: FirstClass Compartment: AC coach with reclining seats. Please carry a valid ticket and ID proof.
+Compartment 4: FirstClass Compartment: AC coach with reclining seats. Please carry a valid ticket and ID proof.
+Compartment 5: General Compartment: Unreserved seating, open to all passengers on a first-come basis.
+Compartment 6: FirstClass Compartment: AC coach with reclining seats. Please carry a valid ticket and ID proof.
+Compartment 7: Ladies Compartment: Reserved exclusively for women passengers. Male passengers are not allowed.
+Compartment 8: Ladies Compartment: Reserved exclusively for women passengers. Male passengers are not allowed.
+Compartment 9: Ladies Compartment: Reserved exclusively for women passengers. Male passengers are not allowed.
+Compartment 10: Luggage Compartment: For parcels and goods only. No passengers allowed.
+PS C:\Users\user\Desktop\roh\.vscode> 
